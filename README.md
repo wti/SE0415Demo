@@ -3,8 +3,7 @@
 - [SE-0415 function body macro discussion on swift forum](https://forums.swift.org/t/se-0415-function-body-macros)
 
 ## Status
-- Minimal demo and test of preamble logging macro copied from PR tests
-    - with known issues below
+- Minimal demo and test of preamble and body macro adapted from PR tests
 
 ## Getting started
 - Download and install [trunk/main toolchain snapshot](https://www.swift.org/download/#snapshots)
@@ -18,6 +17,11 @@
 - `@_spi() import ...` on client code
 
 ## Known issues
-- `@Log2` Macro name not seen from client module?
+- P1 Macro names not seen from client module?
     - workaround: declare in client
+    - possibly d/t `@_spi`
+- P1 Body macro statements duplicated, resulting in dangling closure
 - Excess [Tests/MacroChecks](Tests/MacroChecks) helpful but not required
+
+## Development
+- `// Source: ` indicates code copied from and copyrighted by Apple
