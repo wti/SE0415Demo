@@ -20,17 +20,22 @@
 //@attached(preamble)
 //macro Traced() = #externalMacro(module: "MacroDefinition", type: "TracedPreambleMacro")
 
+@attached(body)
+macro Around() =
+#externalMacro(module: "MacroDefinition", type: "AroundBodyMacro")
+
 @attached(preamble)
 macro Log2() =
   #externalMacro(module: "MacroDefinition", type: "Log2PreambleMacro")
 
-protocol ConjureRemoteValue {
-  static func conjureValue() -> Self
-}
-
-extension String: ConjureRemoteValue {
-  static func conjureValue() -> String { "" }
-}
+// RESTORE
+//protocol ConjureRemoteValue {
+//  static func conjureValue() -> Self
+//}
+//
+//extension String: ConjureRemoteValue {
+//  static func conjureValue() -> String { "" }
+//}
 
 // RESTORE
 //@available(SwiftStdlib 5.1, *)

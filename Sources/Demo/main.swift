@@ -1,10 +1,13 @@
 @_spi(ExperimentalLanguageFeature) import Body
 @_spi(ExperimentalLanguageFeature) import MacroDefinition
 
-// TODO: P1 Unclear why unable to use/see declaration in body
+// TODO: P1 workaround d/t unable to use/see declaration in body
 @attached(preamble)
 macro Log2() =
   #externalMacro(module: "MacroDefinition", type: "Log2PreambleMacro")
+@attached(body)
+macro Around() =
+#externalMacro(module: "MacroDefinition", type: "AroundBodyMacro")
 
 enum Demo {
   static func printfunc(_ s: String, f: StaticString = #function) {
@@ -22,12 +25,21 @@ enum Demo {
     goodbye(" ... Aloha!")
     return result
   }
+  // TODO: P1 body macro duplicates body
+  // @Around
+  static func bye(name you: String = "World!") -> String {
+    let result = "Good bye \(you)"
+    printfunc(result)
+    return result
+  }
+  
   public static func demo() -> [String] {
     var result = [String]()
     result += [hello()]
     result += [hello(name: "Handsome")]
+    result += [bye(name: "All")]
     return result
   }
 }
 
-Demo.printfunc("## Demo results:\n" + Demo.demo().joined(separator: "\n"))
+print("## Demo results:\n" + Demo.demo().joined(separator: "\n"))

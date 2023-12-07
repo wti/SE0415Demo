@@ -1,4 +1,3 @@
-// Copyright Apple
 // Source: https://github.com/DougGregor/swift/blob/380bad4e0743d2b6e1d1b23ee2b02bba04ac9a3d/test/Macros/Inputs/syntax_macro_definitions.swift
 
 import SwiftDiagnostics
@@ -97,8 +96,7 @@ public struct Log2PreambleMacro: PreambleMacro {
       & WithOptionalCodeBlockSyntax,
     in context: some MacroExpansionContext
   ) throws -> [CodeBlockItemSyntax] {
-    // FIXME: Should be able to support (de-)initializers and accessors as
-    // well, but this is a lazy implementation.
+    // TODO: P2 initializers and accessors
     guard let funcDecl = declaration.as(FunctionDeclSyntax.self) else {
       return []
     }

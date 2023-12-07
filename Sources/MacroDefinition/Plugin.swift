@@ -4,6 +4,7 @@ import SwiftSyntaxMacros
 @main
 struct MarrowPlugin: CompilerPlugin {
   let providingMacros: [Macro.Type] = [
-    Log2PreambleMacro.self
+    Log2PreambleMacro.self,
+    AroundBodyMacro.self
   ]
 }

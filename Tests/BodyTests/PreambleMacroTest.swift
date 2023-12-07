@@ -6,7 +6,7 @@ import SwiftSyntaxMacrosTestSupport
 import XCTest
 
 @_spi(ExperimentalLanguageFeature)
-public final class BodyMacroTests: XCTestCase {
+public final class PreambleMacroTests: XCTestCase {
 
   func testLog2() throws {
     XCTAssert(!MacroCases.log2Tests.isEmpty, "Missing cases")
