@@ -17,6 +17,7 @@
 - `@_spi() import ...` on client code
 
 ## Known issues
+- (Search for `TODO: P1` to find comment tags)
 - P1 Macro names not seen from client module?
     - workaround: declare in client
     - possibly d/t `@_spi`
